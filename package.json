@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "electron": "^29.1.6",
+    "init": "^0.1.2",
+    "mongoose": "^8.2.4"
+  },
+  "name": "cadastro",
+  "version": "1.0.0",
+  "description": "Cadastro de Cliente",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "vitor Fialho bergamo e Gustavo Teodoro",
+  "license": "MIT"
+}

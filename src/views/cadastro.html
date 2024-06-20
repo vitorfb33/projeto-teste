@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--evitar ataques de Cross Site Scripting (injeção de dados)-->
+  <link rel="stylesheet" href="../public/css/style.css">
+  <link rel="stylesheet" href="../public/css/bootstrap.min.css">
+  <title>Cadastro de Aluno</title>
+
+</head>
+
+<body class="bg-dark">
+  <h1 class="text-warning text-center mt-3">Cadastrar Matrículas</h1>
+
+  <div class="col-md-4 d-flex mt-3">
+    <input type="text" class="form-control ms-3" id="inputSearch" maxlength="30">
+    <button type="button" class="btn btn-primary ms-3" id="btnRead" onclick="pesquisarCliente()">Buscar</button>
+
+  </div>
+
+  
+  <hr class="border border-warning border-1 opacity-75">
+
+
+  <div class="col-4 d-flex align-items-center justify-content-center flex-column">
+        <!-- exibir imagem do produto-->
+        <div class="col-md-4">
+          <img id="imagemProdutoPreview" src="../public/img/camera.png" alt="" class="img-fluid">
+        </div>
+        <!-- upload da imagem via explorador de arquivos -->
+        <div class="col-3">
+        <input type="file" id="imagemProduto" class="botaoImagem">
+      </div>
+      </div>
+
+  <div class="col-md-6">
+    <input type="text" class="form-control" id="idClient" placeholder="ID" maxlength="30">
+    <br>
+  </div>
+  <div class="container-fluid">
+    <form id="formCadastros" class="row g-3">
+
+      <div class="col-6">
+        <label for="inputName" class="form-label text-warning">Nome Completo</label>
+        <input type="text" placeholder="Nome" id="formNome" class="form-control text-center" requiredspellcheck="false">
+      </div>
+
+      <div class="col-2">
+        <label for="inputName" class="form-label text-warning">Nascimento</label>
+        <input type="tel" placeholder="Nascimento" id="formTelefone" class="form-control text-center" spellcheck="false">
+      </div>
+
+      <div class="col-md-4">
+        <label for="inputName" class="form-label text-warning">Email</label>
+        <input type="email" required placeholder="Email" id="formEmail" class="form-control text-center "
+          spellcheck="false">
+      </div>
+
+      <div class="col-md-3 ">
+        <label for="formCpf1" class="form-label text-warning">CPF</label>
+        <div class="d-flex align-self-center">
+        <input type="number" required placeholder="CPF" id="formCpf1"  class="form-control text-center d-flex" onblur="verificaCPF()" >
+        <img src="../public/img/erro.png" alt="CPF invalido" id="cpfVerificado" class="col-md-1  img-fluid  ">
+        </div>
+  </div>
+      <div class="col-md-2">
+        
+        <!-- <label for="inputName" class="form-label text-warning">Genero</label>
+        <input type="text" required placeholder="Genêro" id="formCpf" class="form-control text-center"
+          spellcheck="false"> -->
+          <label for="inputName" class="form-label text-warning">Gênero</label>
+          <select type="text" required placeholder="Genêro" id="formCpf"  class="form-select text-center ">
+            
+            <option value="masculino" selected>Masculino</option>
+            <option value="feminino" selected>Feminino</option>
+            <option value="outros" selected>Outros</option>
+            <option  selected>Genêro</option>
+          </select>
+      </div>
+
+      <div class="col-4">
+        <label for="inputName" class="form-label text-warning">Telefone</label>
+        <input type="text" placeholder="Telefone" id="formCep" maxlength="9" class="form-control text-center" spellcheck="false">
+      </div>
+
+      <div class="col-6">
+        <label for="inputName" class="form-label text-warning">Histórico Médico</label>
+        <input type="text" placeholder="Histórico" id="formLogradouro" class="form-control text-center "
+          spellcheck="false">
+      </div>
+
+      <div class="col-4">
+        <!-- <label for="inputName" class="form-label text-warning">Condicionamento</label>
+        <input type="text" placeholder="Condicionamento" id="formNumero" class="form-control text-center" spellcheck="false"> --> 
+        <label for="inputName" class="form-label text-warning">Condicionamento</label>
+        <select input type="text" placeholder="Condicionamento" id="formNumero"  class="form-select text-center " placeholder="Planos">
+          <option  selected>Condicionamento</option>
+          <option value="sendentario" >Sendentario</option>
+          <option value="exercicio leve">Exercicio Leve </option>
+          <option value="exercicio moderado" >Exercicio Moderado</option>
+          <option value="exercicio pesado" >Exercicio Pesado</option>
+          <option value="atleta" >Atleta</option>
+
+        </select>
+      </div>
+
+      <div class="col-6">
+        <!-- <label for="inputName" class="form-label text-warning">Plano</label> 
+        <input type="text" placeholder="Plano" id="formComplemento" class="form-control text-center"
+          spellcheck="false"> -->
+          <label for="inputName" class="form-label text-warning">Planos</label>
+          <select input type="text" placeholder="Plano" id="formComplemento"  class="form-select text-center " placeholder="Planos">
+            <option  selected>Planos</option>
+            <option value="premium 12x R$119,99" >Premium 12x R$119,99</option>
+            <option value="basico Anual 12x R$59,99">Basico Anual 12x R$59,99 </option>
+            <option value="basico Mensal R$59,99" >Basico Mensal R$59,99</option>
+            <option value="trimestral 3x R$44,99" >Trimestral 3x R$44,99</option>
+            <option value="Boxe R$89,90" >Boxe R$89,90</option>
+            <option value="Zumba  R$125,90" >Zumba  R$125,90</option>
+            <option value="Fit Dance  R$105,00">Fit Dance  R$105,00</option>
+
+          </select>
+
+      </div>
+
+      <div class="col-2">
+        <label for="inputName" class="form-label text-warning">Data de Inicio</label>
+        <input type="text" placeholder="Inicio" id="formBairro" class="form-control text-center" spellcheck="false">
+      </div>
+
+      <div class="col-4">
+        <label for="inputName" class="form-label text-warning">CEP</label>
+        <input type="text" placeholder="Cep" id="formCep1" maxlength="9" onblur="buscarEndereco()" class="form-control text-center" spellcheck="false">
+      </div>
+        
+    <div class="col-3">
+      <label for="inputName" class="form-label text-warning">Logradouro</label>
+      <input type="text" placeholder="Logradouro" id="formLogradouro1" class="form-control text-center " spellcheck="false">
+    </div>
+
+    <div class="col-3">
+      <label for="inputName" class="form-label text-warning">Numero</label>
+      <input type="text" placeholder="Numero" id="formNumero1" class="form-control text-center" spellcheck="false">
+    </div>
+
+    <div class="col-4">
+      <label for="inputName" class="form-label text-warning">Complemento</label>
+      <input type="text" placeholder="Complemento" id="formComplemento1" class="form-control text-center" spellcheck="false">
+    </div>
+        
+    <div class="col-6">
+      <label for="inputName" class="form-label text-warning">Bairro</label>
+      <input type="text" placeholder="Bairro" id="formBairro1" class="form-control text-center" spellcheck="false">
+    </div>
+        
+    <div class="col-3">
+      <label for="inputName" class="form-label text-warning">Cidade</label>
+      <input type="text" placeholder="Cidade" id="formCidade1" class="form-control text-center" spellcheck="false">
+    </div>
+        
+    <div class="col-2">
+      <label for="inputName" class="form-label text-warning">UF</label>
+      <select name="uf" id="formUf1" class="form-select">
+        <option value="" selected>Selecione a UF</option>
+        <option value="SP">SP</option>
+        <option value="RJ">RJ</option>
+        <option value="MG">MG</option>
+        <option value="RS">RS</option>
+        <option value="RN">RN</option>
+        <option value="PA">PA</option>
+        <option value="BH">BH</option>
+      </select>
+    </div>
+
+
+
+
+      <input type="submit" value="Salvar" class="mt-4 btn btn-outline-success col-3 ms-3" id="btnSalvar">
+
+      <button type="button" class="btn btn-outline-warning mt-4 ms-3 col-3" id="btnUpdate" onclick="editarCliente()">
+        Editar </button>
+
+      <button type="button" onclick="excluirCliente()" class="btn btn-outline-danger mt-4 ms-3 col-3" id="btnDelete">
+        Excluir </button>
+
+      <button type="reset" class="btn" id="btnReset" onclick="clean()"></button>
+    </form>
+  </div>
+  <!--</main>--->
+
+  <script src="../public/js/janela1/renderer.js"></script>
+  <script src="../views/script.js"></script>
+  <script src="../public/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

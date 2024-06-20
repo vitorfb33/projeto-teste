@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--evitar ataques de Cross Site Scripting (injeção de dados)-->
+    <link rel="stylesheet" href="../public/css/bootstrap.min.css">
+    <title>Editar Cliente</title>
+    
+</head>
+<body class="bg-dark">
+    <main class="container d-flex flex-column align-items-center justify-content-center">
+    <h1 class="text-center text-warning m-3">Matrículas</h1>
+    <table class="table table-dark table-striped table-hover mt-5 text-center" id="formCadastros" >
+        <thead>
+            <tr>
+                <th class="text-warning">Nome</th>
+                <th class="text-warning">Nascimento</th>
+                <th class="text-warning">Email</th>
+                <th class="text-warning">Cpf</th>
+                <th class="text-warning">Genêro</th>
+                <th class="text-warning">Telefone</th>
+                <th class="text-warning">Histórico</th>
+                <th class="text-warning">Condicionamento</th>
+                <th class="text-warning">Plano</th>
+                <th class="text-warning">Inicio</th>
+ 
+            </tr>
+        </thead>
+        <tbody id="listaCadastros"></tbody>
+    </table>
+</main>
+    <script src="../public/js/janela2/renderer.js"></script>
+    <script src="../public/js/bootstrap.min.js"></script>
+</body>
+</html>
